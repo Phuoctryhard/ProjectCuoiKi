@@ -1,0 +1,88 @@
+html{
+  box-sizing: border-box;
+}
+.heading{
+  width: 100%;
+  padding:  20px;
+  /* background: linear-gradient(to right, #56CCF2, #2F80ED); */
+  background:  #2F80ED;
+  font-size: 18px;
+  padding-top: 30px; 
+  }
+  .heading_search{
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 20px;
+  }
+  .search{
+      display: flex;
+      width: 100%;
+      background-color: white; ;
+      padding: 5px;
+      border-radius: 5px;
+  }
+  .heading_language{
+      background-color: #DD3F24;
+      color: #FFFFFF;
+  }
+  .heading_searchText{
+      color: black;
+      font-size: 30px;
+      font-weight: 500;
+  
+  }
+  .search_skill{
+      width: 100%;
+      border: none;
+      padding: 10px;
+      outline: none;
+      font-size: 16px;
+  }
+  .search-btn{
+      background-color: red;
+      color: white;
+      width: 150px;
+      border: none;
+      height: 50px;
+      font-size: 20px;
+      margin: auto 0;
+      border-radius: 5px;
+      line-height: 0px; 
+      text-align: center;
+
+  }
+  .select-input{
+      width: 250px;
+      height: 50px;
+      background-color: white;
+      cursor: pointer;
+      /* display: flex; */
+      text-align: left;
+      justify-content: space-between;
+      color: #292929;
+      position: relative;
+      border-radius: 5px;
+    
+  }
+  .select-input-label{
+      display: flex;
+      justify-content: space-between;
+      background-color: #FFFFFF;
+      display: inline-block;
+      width: 250px;
+      height: 60px;
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: 5px;
+       
+  }
+  .Select{
+    display: flex;
+    justify-content: space-around;
+    
+  }
+  .TabUi{
+    /* background-color: #E9EAEC; */
+    background-color: #CCC;
+  }

@@ -1,0 +1,49 @@
+
+port: localhost:5000/
+----data
+localhost:5000/data/: FanpageController.show  (GET)
+
+localhost:5000/data/view: FanpageController.index  (GET)
+
+localhost:5000/data/react: FanpageController.react  (GET)
+----post
+
+
+
+localhost:5000/post/: PostController.show  (GET)
+
+localhost:5000/post/by/:id: PostController.getbyid  (GET)
+
+localhost:5000/post/create: PostController.create  (GET)
+
+localhost:5000/post/recruitment: PostController.cruitment  (GET)
+
+localhost:5000/post/sendmail: PostController.send_gmail  (POST): để gửi mail
+
+localhost:5000/post/edit/recruitment/:_id: PostController.editbyid  (GET)
+
+localhost:5000/post/update/recruitment/:_id: PostController.updatebyid (PUT)
+
+localhost:5000/post/delete/:id: PostController.deletebyid (DELETE)
+
+localhost:5000/post/create: PostController.createpost  (POST)
+
+localhost:5000/post/scraper: PostController.scrape  (POST)
+
+----company
+localhost:5000/company/: CompanyController.show  (GET)
+
+localhost:5000/company/search/all: CompanyController.searchInput  (GET)
+
+localhost:5000/company/search: CompanyController.searchselect  (GET)
+
+----user
+localhost:5000/user/login: userController.loginUser  (POST): để đăng nhập
+
+localhost:5000/user/adduser: userController.addUser  (POST): để đăng ký
+
+localhost:5000/user/changepass: userController.change_password  (POST): để đổi mật khẩu tài khoản
+
+localhost:5000/user/updaterole: userController.update_user_role  (POST): thăng quyền tài khoản lên admin
+
+localhost:5000/user/demoteuser: userController.demote_user_role  (POST): giáng quyền tài khoản thành user

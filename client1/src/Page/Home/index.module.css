@@ -1,0 +1,80 @@
+.container_company{
+  background-color: #ccc;
+}
+
+.item_company{
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  border-radius: 5px;
+
+  
+}
+.list_company{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 20px;
+
+
+}
+.heading_company{
+  font-weight: 600;
+  font-size: 24px;
+  padding : 20px 0 ;
+  margin: 0 20px;
+
+}
+
+/* cong viec mơi nhat  */
+
+.container_newjob{
+  background-color: #ffffff;
+}
+.newjob_maincontent{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.listnewjob{
+  margin:  0 20px;
+  /* background-color: yellow; */
+}
+/* heading */
+.newjob_header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 600;
+  padding : 20px  0 15px 0 ;
+}
+.newjob_header{
+  
+}
+.item_newsjob{
+  display: flex;
+  width: calc(90% /3);
+  flex: 0 0 calc(90% / 3);
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 2px solid rgb(241, 241, 241);
+}
+.newjob_content{
+  margin-top: 10px;
+}
+.newjob_title{
+  font-weight: 600;
+  font-size: 18px;
+}
+.newjob_namecompany{
+  font-weight: 400;
+  color: rgb(255, 125, 85);;
+}
+.newjob_namelanguage{
+  font-size: 14px;
+}

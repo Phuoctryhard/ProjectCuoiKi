@@ -1,0 +1,42 @@
+.text-active{
+  color: red;
+}/* admin.css */
+
+.admin-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.table {
+  width: 80%; /* Chọn một giá trị phù hợp cho chiều rộng của bảng */
+  margin-top: 20px; /* Tăng khoảng cách giữa tiêu đề và bảng */
+  border-collapse: collapse; /* Gộp đường viền của các ô */
+}
+
+th, td {
+  border: 1px solid #ddd; /* Đặt đường viền cho các ô */
+  padding: 8px; /* Tăng độ dày của khu vực padding bên trong các ô */
+  text-align: left; /* Căn lề văn bản sang trái */
+}
+
+thead {
+  background-color: #f2f2f2; /* Màu nền cho phần đầu bảng */
+}
+
+th {
+  background-color: #4CAF50; /* Màu nền cho ô tiêu đề */
+  color: white; /* Màu văn bản cho ô tiêu đề */
+}
+
+a {
+  text-decoration: none; /* Loại bỏ gạch chân từ liên kết */
+   /* Màu cho liên kết */
+}
+
+a:hover {
+  font-weight: 600; /* Tăng độ đậm khi di chuột qua liên kết */
+}

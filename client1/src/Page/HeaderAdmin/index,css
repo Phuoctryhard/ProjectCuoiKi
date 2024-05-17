@@ -1,0 +1,10 @@
+/* App.css */
+.navbar-link {
+  color: #333; /* Màu chữ */
+  text-decoration: none; /* Loại bỏ gạch chân dưới */
+  font-weight: bold; /* Chữ đậm */
+}
+
+.navbar-link:hover {
+  color: #007bff; /* Màu chữ khi di chuột qua */
+}
