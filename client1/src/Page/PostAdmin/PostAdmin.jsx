@@ -11,16 +11,13 @@ import {
   infoNotification,
   customNotification
 } from '../../component/Toast'
-
 // Parse the string into a Date object
-
 const cellStyle = {
   overflow: 'hidden',
   textOverflow: 'ellipsis',
   whiteSpace: 'nowrap',
   maxWidth: '150px' // Set your preferred maximum width for most columns
 }
-
 const imageCellStyle = {
   overflow: 'hidden',
   maxWidth: '100px', // Set your preferred maximum width for the image column
@@ -41,18 +38,22 @@ export default function PostAdmin() {
   useEffect(() => {
     if (user) {
       fetch(api1, {
-        Authorization: `Bearer ${user.token}`
+        headers: {
+          Authorization: `Bearer ${user.token}`
+        }
       })
         .then((response) => response.json())
         .then((data) => {
+          console.log(data)
           setData(data)
         })
-
         .catch((error) => {
           console.error('Error fetching data:', error)
+          setError(error)
         })
     }
   }, [user])
+  // console.log(data)
   const pages = Math.ceil(data.length / rowsPerPage)
   const items = React.useMemo(() => {
     const start = (page - 1) * rowsPerPage

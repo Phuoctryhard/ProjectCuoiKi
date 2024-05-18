@@ -40,13 +40,20 @@ mail = Mail(app)
 # img
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['UPLOAD_FOLDER_Blog'] = UPLOAD_FOLDER_Blog
+
 # route
+
+
 @app.route('/')
 def home():
     return '<h1>Welcome</h1>'
+
+
 @app.route('/about')
 def about():
     return '<h1>About us</h1>'
+
+
 @app.route('/user/getuser')
 def getuser():
     try:
@@ -106,7 +113,6 @@ def signup():
 
 
 @app.route("/post/create", methods=['GET'])
-# @jwt_required()
 def showPost():
     try:
         # current_user = get_jwt_identity()
@@ -119,18 +125,40 @@ def showPost():
         return jsonify(data)
     except Exception as e:
         return jsonify({"message": f"Xem dữ liệu không thành công: {e}"}), 500
+# tạo bài cần authentication
 
 
 @app.route("/post/create", methods=["POST"])
+@jwt_required()
 def addPost():
     try:
-        data = request.json
+        # Access text fields
+        congti = request.form.get('congti')
+        luong = request.form.get('luong')
+        vitri = request.form.get('vitri')
+        khuvuc = request.form.get('khuvuc')
+        level = request.form.get('level')
+        timedang = request.form.get('timedang')
+        language = request.form.get('language')
+        id_ = request.form.get('id')
+        soluong = request.form.get('soluong')
+        kinhnghiem = request.form.get('kinhnghiem')
+        bangcap = request.form.get('bangcap')
+        mota = request.form.get('mota')
+        yeucau = request.form.get('yeucau')
+        anh = request.files['anh']
+        if anh:
+            filename = secure_filename(anh.filename)
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            anh.save(file_path)
+        # data = request.json
         cursor = mysql.connection.cursor()
+        # print(data['anh'])
         cursor.execute("""
             INSERT INTO post (congti, luong, vitri, khuvuc, level, anh, language, timedang, soluong, kinhnghiem, bangcap, mota, yeucau)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-        """, (data['congti'], data['luong'], data['vitri'], data['khuvuc'], data['level'], data['anh'], data['language'],
-              data['timedang'], data['soluong'], data['kinhnghiem'], data['bangcap'], data['mota'], data['yeucau']))
+        """, (congti, luong, vitri, khuvuc, level, filename, language,
+              timedang, soluong, kinhnghiem, bangcap, mota, yeucau))  # Truy cập các trường văn bản
         mysql.connection.commit()
         cursor.close()
         return jsonify({"message": "Bài viết đã được thêm thành công."}), 201
@@ -148,25 +176,59 @@ def deletePost(post_id):
         return jsonify({"message": "Bài viết đã được xóa thành công."}), 200
     except Exception as e:
         return jsonify({"message": f"Xóa dữ liệu không thành công: {e}"}), 500
+# lấy theo id
+# @app.route("post/edit/recruitment/<string:post_id>",methods = ["GET"])
+# @jwt_required()
+# def getPost_byId(post_id):
+#     try:
 
 
-@app.route("/post/update/<string:post_id>", methods=["PUT"])
-def updatePost(post_id):
+#     except Exception as e :
+#         return jsonify({"message": f"=Không thể chỉnh sửa dữ liệu : {e}"}), 500
+
+
+# @app.route("/post/update/recruitment/<string:post_id>", methods=["PUT"])
+# def updatePost(post_id):
+#     try:
+#         data = request.json
+#         cursor = mysql.connection.cursor()
+#         cursor.execute("""
+#             UPDATE post
+#             SET congti=%s, luong=%s, vitri=%s, khuvuc=%s, level=%s, anh=%s, language=%s, timedang=%s, soluong=%s, kinhnghiem=%s, bangcap=%s, mota=%s, yeucau=%s
+#             WHERE _id=%s
+#         """, (data['congti'], data['luong'], data['vitri'], data['khuvuc'], data['level'], data['anh'], data['language'],
+#               data['timedang'], data['soluong'], data['kinhnghiem'], data['bangcap'], data['mota'], data['yeucau'], post_id))
+#         mysql.connection.commit()
+#         cursor.close()
+#         return jsonify({"message": "Bài viết đã được cập nhật thành công."}), 200
+#     except Exception as e:
+#         return jsonify({"message": f"Cập nhật dữ liệu không thành công: {e}"}), 500
+@app.route("/post/update/recruitment/<string:post_id>", methods=["PUT"])
+def update_post(post_id):
     try:
         data = request.json
+        
+        # Extract specific fields from the request data
+        congti = data.get('congti')
+        luong = data.get('luong')
+        vitri = data.get('vitri')
+        khuvuc = data.get('khuvuc')
+        level = data.get('level')
+        anh = data.get('anh')
+        timedang = data.get('timedang')
+
         cursor = mysql.connection.cursor()
         cursor.execute("""
             UPDATE post
-            SET congti=%s, luong=%s, vitri=%s, khuvuc=%s, level=%s, anh=%s, language=%s, timedang=%s, soluong=%s, kinhnghiem=%s, bangcap=%s, mota=%s, yeucau=%s
+            SET congti=%s, luong=%s, vitri=%s, khuvuc=%s, level=%s, anh=%s, timedang=%s
             WHERE _id=%s
-        """, (data['congti'], data['luong'], data['vitri'], data['khuvuc'], data['level'], data['anh'], data['language'],
-              data['timedang'], data['soluong'], data['kinhnghiem'], data['bangcap'], data['mota'], data['yeucau'], post_id))
+        """, (congti, luong, vitri, khuvuc, level, anh, timedang, post_id))
         mysql.connection.commit()
         cursor.close()
+        
         return jsonify({"message": "Bài viết đã được cập nhật thành công."}), 200
     except Exception as e:
         return jsonify({"message": f"Cập nhật dữ liệu không thành công: {e}"}), 500
-
 
 @app.route('/protected')
 @jwt_required()
@@ -176,8 +238,64 @@ def protected():
         return jsonify({"message": "Không có người dùng được xác thực."}), 401
     return jsonify({"message": "Thành công refresh", "current_user": current_user})
 
+# admin get post
+
+
+@app.route('/Post/recruitment', methods=['GET'])
+@jwt_required()
+def getPostbyAdmin():
+    try:
+        curent = get_jwt_identity()
+        print(curent)
+        cursor = mysql.connection.cursor()
+        cursor.execute("SELECT * FROM post")
+        columns = [col[0] for col in cursor.description]
+        results = cursor.fetchall()
+        cursor.close()
+        data = [dict(zip(columns, row)) for row in results]
+        return jsonify(data)
+    except Exception as e:
+        return jsonify({"message": f"Error fetching data: {e}"}), 500
+
+# lấy theo id
+
+
+@app.route("/post/edit/recruitment/<int:post_id>", methods=["GET"])
+@jwt_required()
+def getPos_tById(post_id):
+    try:
+        print(post_id)
+        cursor = mysql.connection.cursor()
+        cursor.execute("SELECT * FROM post WHERE _id = %s", (post_id,))
+        post = cursor.fetchone()
+        cursor.close()
+        if post:
+            post_dict = {
+                "_id": post[0],
+                "congti": post[1],
+                "luong": post[2],
+                "vitri": post[3],
+                "khuvuc": post[4],
+                "level": post[5],
+                "anh": post[6],
+                "language": post[7],
+                "timedang": post[8],
+                "soluong": post[9],
+                "kinhnghiem": post[10],
+                "bangcap": post[11],
+                "mota": post[12],
+                "yeucau": post[13],
+
+            }
+            return jsonify(post_dict), 200
+        else:
+            return jsonify({"message": f"Không tìm thấy bài viết có ID {post_id}"}), 404
+    except Exception as e:
+        return jsonify({"message": f"Lấy dữ liệu không thành công: {e}"}), 500
+
 
 @app.route("/post/recruitment/by/<int:post_id>", methods=["GET"])
+# @jwt_required()
 def getPostById(post_id):
     try:
         cursor = mysql.connection.cursor()

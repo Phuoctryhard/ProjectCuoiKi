@@ -152,19 +152,6 @@ function JobPostingForm() {
     mota: '',
     yeucau: ''
   })
-  // const handleChange = (event) => {
-  //   const { name, value } = event.target
-
-  //   if (!user) {
-  //     setError('You must be logged in')
-  //     warningNotification('You must be logged in')
-  //     return
-  //   }
-  //   setFormData({
-  //     ...formData,
-  //     [name]: value
-  //   })
-  // }
 
   const handleChange = (event) => {
     const { name, value, type } = event.target

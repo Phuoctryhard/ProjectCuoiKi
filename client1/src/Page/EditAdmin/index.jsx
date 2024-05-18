@@ -35,6 +35,7 @@ export default function Edit() {
         }
       })
         .then((res) => {
+          console.log(res)
           return res.json()
         })
         .then((res) => {
@@ -182,7 +183,7 @@ export default function Edit() {
           type='date' // Sử dụng type là "date" thay vì "datetime-local"
           id='postingTime'
           name='timedang'
-          value={formData.timedang}
+          value={formData.timedang}// Convert Date object to string
           onChange={handleChange}
           required
         />
