@@ -3,7 +3,7 @@ import Home from '../Page/Home/index.jsx'
 import Recruitment from '../Page/Recruitment/index.jsx'
 import Analisic from '../Page/AnaLitic/index.jsx'
 import Detail from '../Page/Detail_Recruitment/detail'
-import Detailcompany from  '../Page/Detail_Company/detail_company.jsx'
+import Detailcompany from '../Page/Detail_Company/detail_company.jsx'
 import Admin from '../Page/Admin/admin.jsx'
 import PostAdmin from '../Page/PostAdmin/PostAdmin.jsx'
 import EditAdmin from '../Page/EditAdmin/index.jsx'
@@ -19,9 +19,9 @@ const publicRouter = [
   { path: '/Home', commponent: Home },
   { path: '/Analytics', commponent: Analisic },
   { path: '/Recruitment', commponent: Recruitment },
-  {path: '/BlogIt', commponent: BlogIT },
-  {path: '/Congti', commponent: Congti },
-  {path: '/details/:id', commponent: DetailsBlog},
+  { path: '/BlogIt', commponent: BlogIT },
+  { path: '/Congti', commponent: Congti },
+  { path: '/details/:id', commponent: DetailsBlog },
   { path: '/post/by/:id', commponent: Detail },
   { path: '/CV', commponent: CV },
   { path: '/conpany/name/:company', commponent: Detailcompany },

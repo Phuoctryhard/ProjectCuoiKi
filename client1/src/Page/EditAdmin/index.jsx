@@ -16,7 +16,7 @@ export default function Edit() {
   const { _id } = useParams()
   const navigate = useNavigate()
   // const api = `http://wandertour.ddns.net:5000/post/edit/recruitment/${_id}`
-  const api = `http://localhost:5000/post/edit/recruitment/${_id}`
+  const api = `https://ngodinhphuoc.pythonanywhere.com/post/edit/recruitment/${_id}`
   const [formData, setFormData] = useState({
     congti: '',
     luong: '',
@@ -70,9 +70,11 @@ export default function Edit() {
     console.log('Submitted data:', formData)
     // http://wandertour.ddns.net:5000/post/create
     axios
-      .post('http://localhost:5000/post/create', formData, {
+      .post('https://ngodinhphuoc.pythonanywhere.com/post/create', formData, {
         headers: {
           'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
           Authorization: `Bearer ${user.token}`
         }
       })
@@ -83,9 +85,11 @@ export default function Edit() {
         console.error('Error:', error)
       })
     axios
-      .put(`http://localhost:5000/post/update/recruitment/${_id}`, formData, {
+      .put(`https://ngodinhphuoc.pythonanywhere.com/post/update/recruitment/${_id}`, formData, {
         headers: {
           'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
           Authorization: `Bearer ${user.token}`
         }
       })
@@ -183,7 +187,7 @@ export default function Edit() {
           type='date' // Sử dụng type là "date" thay vì "datetime-local"
           id='postingTime'
           name='timedang'
-          value={formData.timedang}// Convert Date object to string
+          value={formData.timedang} // Convert Date object to string
           onChange={handleChange}
           required
         />

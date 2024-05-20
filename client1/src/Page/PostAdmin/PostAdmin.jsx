@@ -33,7 +33,7 @@ export default function PostAdmin() {
   const [data, setData] = useState([])
   const rowsPerPage = 2
   // const api = 'http://wandertour.ddns.net:5000/Post/recruitment'
-  const api1 = 'http://localhost:5000/Post/recruitment'
+  const api1 = 'https://ngodinhphuoc.pythonanywhere.com/Post/recruitment'
   const [error, setError] = useState(null)
   useEffect(() => {
     if (user) {
@@ -74,7 +74,7 @@ export default function PostAdmin() {
     /// delete
     // http://wandertour.ddns.net:5000/post/delete/
     axios
-      .delete(`http://localhost:5000/post/delete/${postId}`, {
+      .delete(`https://ngodinhphuoc.pythonanywhere.com/post/delete/${postId}`, {
         headers: {
           Authorization: `Bearer ${user.token}`
         }

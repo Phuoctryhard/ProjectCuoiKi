@@ -30,7 +30,7 @@ export default function Admin() {
   const rowsPerPage = 3
 
   // const api = ' http://wandertour.ddns.net:5000/Post/'
-  const api = 'http://localhost:5000/Post/'
+  const api = 'https://ngodinhphuoc.pythonanywhere.com/Post/'
   useEffect(() => {
     if (user) {
       console.log(user.token)
@@ -65,7 +65,7 @@ export default function Admin() {
     <div className='admin-container'>
       <div className='admin'>
         <div className='left-column'>
-          <h1 className='heading-admin' style={{ marginLeft: '60px', bottom: '20px', color:'blue' }}>
+          <h1 className='heading-admin' style={{ marginLeft: '60px', bottom: '20px', color: 'blue' }}>
             Danh Sách Bài Post
           </h1>
 
@@ -122,7 +122,7 @@ export default function Admin() {
 
         <div className='right-column'>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <h2 style={{color:'blue'}}>Thêm Tuyển Dụng</h2>
+            <h2 style={{ color: 'blue' }}>Thêm Tuyển Dụng</h2>
           </div>
           <JobPostingForm />
         </div>
@@ -202,12 +202,14 @@ function JobPostingForm() {
     formDataToSend.append('anh', formData.anh)
     // Xử lý dữ liệu biểu mẫu, ví dụ: gửi dữ liệu đến máy chủ hoặc thực hiện các thao tác khác
     console.log('Submitted data:', formDataToSend)
-// 'http://wandertour.ddns.net:5000/post/create
+    // 'http://wandertour.ddns.net:5000/post/create
     axios
-      .post('http://localhost:5000/post/create', formDataToSend, {
+      .post('https://ngodinhphuoc.pythonanywhere.com/post/create', formDataToSend, {
         headers: {
           Authorization: `Bearer ${user.token}`,
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'multipart/form-data',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS'
         }
       })
       .then((response) => {

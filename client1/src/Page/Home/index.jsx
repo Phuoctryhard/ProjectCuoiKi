@@ -88,7 +88,7 @@ const CompanyTop = () => {
 const JobOutstanding = () => {
   const [data, setData] = useState([])
   useEffect(() => {
-    fetch('http://localhost:5000/post/create')
+    fetch('https://ngodinhphuoc.pythonanywhere.com/post/create')
       .then((response) => response.json())
       .then((res) => {
         setData(res.slice(0, 12))
@@ -112,7 +112,7 @@ const JobOutstanding = () => {
             return (
               <div className={styles.item_newsjob}>
                 <div className={styles.company_image}>
-                  <img style={{ width: '98px', height: '98px', padding: '16px 8px ' }} src={`http://localhost:5000/Images/`+element.anh}></img>
+                  <img style={{ width: '98px', height: '98px', padding: '16px 8px ' }} src={`https://ngodinhphuoc.pythonanywhere.com/Images/`+element.anh}></img>
                 </div>
                 <div className={styles.newjob_content}>
                   <h1 className={styles.newjob_title}> {element.vitri}</h1>

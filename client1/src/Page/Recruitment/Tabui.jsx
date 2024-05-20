@@ -136,7 +136,7 @@ const App1 = ({ selectPlace }) => {
   useEffect(() => {
     if (selectPlace == 'all' || selectPlace == '') {
       console.log('1')
-      fetch('http://localhost:5000/company')
+      fetch('https://ngodinhphuoc.pythonanywhere.com/company')
         .then((response) => response.json())
         .then((res) => {
           setData(res)

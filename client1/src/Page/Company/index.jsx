@@ -16,7 +16,7 @@ function Company() {
   // http://wandertour.ddns.net:5000/company'
   const [data, setData] = useState([])
   useEffect(() => {
-    fetch('http://localhost:5000/company')
+    fetch('https://ngodinhphuoc.pythonanywhere.com/company')
       .then((response) => response.json())
       .then((res) => {
         setData(res)

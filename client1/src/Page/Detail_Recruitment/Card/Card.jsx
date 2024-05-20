@@ -27,7 +27,7 @@ const MusicCard = ({ liked, onToggleLike, data }) => (
             className='object-cover'
             height={300}
             shadow='md'
-            src={`http://localhost:5000/Images/` + data.anh}
+            src={`https://ngodinhphuoc.pythonanywhere.com/Images/` + data.anh}
             width='100%'
           />
         </div>

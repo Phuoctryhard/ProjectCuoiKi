@@ -39,7 +39,7 @@ export default function Detail() {
   const { user } = useAuthContext()
   // http://wandertour.ddns.net:5000/post/recruitment/by/${id}
   useEffect(() => {
-    fetch(`http://localhost:5000/post/recruitment/by/${id}`)
+    fetch(`https://ngodinhphuoc.pythonanywhere.com/post/recruitment/by/${id}`)
       .then((result) => result.json())
       .then((data) => {
         setCongti(data)
@@ -183,10 +183,9 @@ function ApplicationModal({ onClose, onApply, Congti, setApplicationStatus }) {
       formDataToSend.append(key, value)
     })
 
-
     //http://wandertour.ddns.net:5000/post/sendmail
     // Gửi yêu cầu POST đến máy chủ
-    fetch('http://localhost:5000/post/sendmail', {
+    fetch('https://ngodinhphuoc.pythonanywhere.com/post/sendmail', {
       method: 'POST',
       body: formDataToSend
     })

@@ -61,7 +61,7 @@ export default function Login({ handleSubmit }) {
                 <Button color='danger' variant='flat' onPress={onClose}>
                   Close
                 </Button>
-                <Button   color='primary' onClick={handleSubmit}>
+                <Button color='primary' onClick={handleSubmit}>
                   Sign in
                 </Button>
               </ModalFooter>

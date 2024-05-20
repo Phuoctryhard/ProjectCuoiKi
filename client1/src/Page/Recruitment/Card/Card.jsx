@@ -37,7 +37,7 @@ const MusicCard = ({ liked, onToggleLike, data }) => (
             className='object-cover'
             height={300}
             shadow='md'
-            src={`http://localhost:5000/Images/` + data.anh}
+            src={`https://ngodinhphuoc.pythonanywhere.com/Images/` + data.anh}
             width='100%'
           />
         </div>
@@ -112,7 +112,7 @@ const App = ({ data, setData }) => {
   }
   //const url1 ='http://wandertour.ddns.net:5000/post/create'
   useEffect(() => {
-    fetch('http://localhost:5000/post/create')
+    fetch('https://ngodinhphuoc.pythonanywhere.com/post/create')
       .then((response) => response.json())
       .then((res) => {
         setData(res)

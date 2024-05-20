@@ -19,7 +19,6 @@ export default function App() {
     logout()
     navigation('/Login')
   }
-
   return (
     <Navbar isBordered>
       <NavbarBrand>
@@ -28,15 +27,15 @@ export default function App() {
       </NavbarBrand>
       <NavbarContent className='hidden sm:flex gap-6' justify='center'>
         <NavbarItem>
-          <Link color='foreground' href='/Postadmin' className='navbar-link'>
+          <a color='foreground' href='/Postadmin' className='navbar-link'>
             Bài Tuyển Dụng
-          </Link>
+          </a>
         </NavbarItem>
 
         <NavbarItem isActive>
-          <Link href='/AddPost' aria-current='page' className='navbar-link'>
+          <a href='/AddPost' aria-current='page' className='navbar-link'>
             Thêm Bài
-          </Link>
+          </a>
         </NavbarItem>
       </NavbarContent>
 
@@ -49,18 +48,18 @@ export default function App() {
 
         {!user && (
           <NavbarItem className='hidden lg:flex'>
-            <Link href='/Login' className='navbar-link'>
+            <a href='/Login' className='navbar-link'>
               Login
-            </Link>
+            </a>
           </NavbarItem>
         )}
 
         {user && user.role !== 'admin' && (
           <>
             <NavbarItem className='hidden lg:flex'>
-              <Link href='/Login' className='navbar-link'>
+              <a href='/Login' className='navbar-link'>
                 Login
-              </Link>
+              </a>
             </NavbarItem>
             <NavbarItem>
               <Button color='primary' variant='flat' onClick={handleLogout}>

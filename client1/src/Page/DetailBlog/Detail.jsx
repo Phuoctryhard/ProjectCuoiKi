@@ -14,7 +14,8 @@ export default function DetailsBlog() {
   useEffect(() => {
     // Replace 'http://localhost:5000/blog/by/658d7c5423ad0a5f79f7e387' with your actual API endpoint
     //`http://wandertour.ddns.net:5000/blog/by/${id}`)
-    fetch(`http://localhost:5000/blog/by/${id}`)
+    const url = 'https://ngodinhphuoc.pythonanywhere.com/'
+    fetch(`${url}/blog/by/${id}`)
       .then((response) => response.json())
       .then((data) => setBlogs(data))
       .catch((error) => console.error('Error fetching blog data:', error))
@@ -33,7 +34,7 @@ export default function DetailsBlog() {
             <div className='left'>
               <img
                 // http://wandertour.ddns.net:5000/Images_Blog
-                src={`http://localhost:5000/Images_Blog/` + blogs.cover}
+                src={`https://ngodinhphuoc.pythonanywhere.com/Images_Blog/` + blogs.cover}
                 alt=''
                 style={{ width: '500px', margin: '0 auto', display: 'block' }}
               />
@@ -63,3 +64,4 @@ export default function DetailsBlog() {
     </>
   )
 }
+//  fetch(`http://localhost:5000/blog/by/${id}`)

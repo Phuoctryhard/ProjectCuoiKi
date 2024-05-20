@@ -16,7 +16,7 @@ export default function App() {
       </NavbarBrand>
       <NavbarContent className='hidden sm:flex gap-4' justify='center'>
         <NavbarItem>
-          <Link color='foreground' href='/Postadmin' className='navbar-link'></Link>
+          <a color='foreground' href='/Postadmin' className='navbar-link'></a>
         </NavbarItem>
         <NavbarItem isActive>
           <Link href='/AddPost' aria-current='page' className='navbar-link'></Link>
@@ -25,16 +25,16 @@ export default function App() {
 
       <NavbarContent justify='end'>
         <NavbarContent justify='end'>
-          <NavbarItem className='hidden lg:flex'>
-            <Link href='/Login' className='navbar-link'>
+          <NavbarItem className='lg:flex'>
+            <a href='/Login' className='navbar-link'>
               Login
-            </Link>
+            </a>
           </NavbarItem>
 
           <NavbarItem>
-            <Link href='/SignUp' className='navbar-link'>
+            <a href='/SignUp' className='navbar-link'>
               Sign Up
-            </Link>
+            </a>
           </NavbarItem>
         </NavbarContent>
       </NavbarContent>

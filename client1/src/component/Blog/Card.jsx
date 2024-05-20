@@ -7,10 +7,11 @@ import { Link } from 'react-router-dom'
 import styles from './blog.css' // Import the CSS module
 import DOMPurify from 'dompurify'
 export function Card() {
-  const url = 'http://wandertour.ddns.net:5000/blog'
+  // const url = 'http://wandertour.ddns.net:5000/blog'
+  const url2 = 'https://ngodinhphuoc.pythonanywhere.com/blog'
   const [blog, setBlog] = useState([])
   useEffect(() => {
-    fetch('http://localhost:5000/blog')
+    fetch(url2)
       .then((response) => response.json())
       .then((res) => {
         setBlog(res)
@@ -20,7 +21,6 @@ export function Card() {
       })
   }, [])
   const url1 = 'http://wandertour.ddns.net:5000/Images_Blog/'
-
   return (
     <section className='blog'>
       {' '}
@@ -33,7 +33,7 @@ export function Card() {
           return (
             <div className='box boxItems' key={item.id}>
               <div className='img'>
-                <img src={`http://localhost:5000/Images_Blog/` + item.cover} alt='' />
+                <img src={`https://ngodinhphuoc.pythonanywhere.com/Images_Blog/` + item.cover} alt='' />
               </div>
               <div className='details'>
                 <div className='tag'>
@@ -43,7 +43,7 @@ export function Card() {
                 <Link to={`/details/${item._id}`} className='link'>
                   <h3>{item.title}</h3>
                 </Link>
-                
+
                 <p dangerouslySetInnerHTML={{ __html: sanitizedHTML }}></p>
                 <div className='date'>
                   <AiOutlineClockCircle className='icon' /> <label htmlFor=''>{item.date}</label>
@@ -58,3 +58,4 @@ export function Card() {
     </section>
   )
 }
+// <img src={`http://localhost:5000/Images_Blog/` + item.cover} alt='' />

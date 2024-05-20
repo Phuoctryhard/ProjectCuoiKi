@@ -105,7 +105,6 @@ export default function Header() {
           </RouterLink>
         </NavbarItem>
 
-
         <ul className='flex text-white'>
           <li className='group relative'>
             <a href='#' className='dropbtn cursor-pointer py-6' style={{ color: 'black' }}>
@@ -115,7 +114,11 @@ export default function Header() {
               className='hidden absolute text-white mt-2 group-hover:block bg-white shadow-md'
               style={{ width: '200px' }}
             >
-            <a href='https://www.facebook.com/groups/681905030786388' className='block px-4 py-2 hover:bg-white hover:text-black' style={{ color: 'black' }}>
+              <a
+                href='https://www.facebook.com/groups/681905030786388'
+                className='block px-4 py-2 hover:bg-white hover:text-black'
+                style={{ color: 'black' }}
+              >
                 Đăng tin
               </a>
               <a href='#' className='block px-4 py-2 hover:bg-white hover:text-black' style={{ color: 'black' }}>
@@ -135,28 +138,28 @@ export default function Header() {
         {!user && (
           <NavbarContent justify='end'>
             <NavbarItem className='hidden lg:flex'>
-              <Link href='/Login' className='navbar-link'>
+              <a href='/Login' className='navbar-link'>
                 Login
-              </Link>
+              </a>
             </NavbarItem>
             <NavbarItem>
-              <Link href='/SignUp' className='navbar-link'>
+              <a href='/SignUp' className='navbar-link'>
                 Sign Up
-              </Link>
+              </a>
             </NavbarItem>
           </NavbarContent>
         )}
         {user && user.role == 'admin' && (
           <NavbarContent justify='end'>
             <NavbarItem className='hidden lg:flex'>
-              <Link href='/Login' className='navbar-link'>
+              <a href='/Login' className='navbar-link'>
                 Login
-              </Link>
+              </a>
             </NavbarItem>
             <NavbarItem>
-              <Link href='/SignUp' className='navbar-link'>
+              <a href='/SignUp' className='navbar-link'>
                 Sign Up
-              </Link>
+              </a>
             </NavbarItem>
           </NavbarContent>
         )}
