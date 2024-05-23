@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 17, 2024 lúc 10:16 AM
+-- Thời gian đã tạo: Th5 23, 2024 lúc 01:34 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -97,10 +97,39 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`_id`, `congti`, `luong`, `vitri`, `khuvuc`, `level`, `anh`, `language`, `timedang`, `soluong`, `kinhnghiem`, `bangcap`, `mota`, `yeucau`) VALUES
-(2, 'Công ty ABCD2', '10 triệu', 'Nhân viên kinh doanh', 'TP.HCM', 'Junior', 'anh_1703264081575.jpg', 'Tiếng Anh', '2024-05-10', '5', '1 năm', 'Cử nhân', 'Mô tả công việc', 'Yêu cầu công việc'),
-(3, 'Công ty ABC', '10 triệu', 'Nhân viên kinh doanh', 'TP.HCM', 'Junior', 'anh_1703271822456.jpg', 'Tiếng Anh', '2024-05-10', '5', '1 năm', 'Cử nhân', 'Mô tả công việc', 'Yêu cầu công việc'),
-(4, 'Công ty ABC', '10 triệu', 'Nhân viên kinh doanh', 'TP.HCM', 'Junior', 'anh_1703272033954.jpg', 'Tiếng Anh', '2024-05-10', '5', '1 năm', 'Cử nhân', 'Mô tả công việc', 'Yêu cầu công việc'),
-(5, ' Công ty ', '10 triệu ', 'MIDDLE FULL-STACK DEVELOPE', 'Hải Châu - Đà Nẵng.', 'entry', 'anh_1703294644416.png', 'Java', '2024-05-15', '4', '3 năm', 'Đại học', 'Thu nhập TB 13 tháng lương/năm\r\nThưởng Tết + thưởng lương tháng thứ 13 + thưởng hiệu quả công việc + thưởng theo tình tình kinh doanh \r\nKhám sức khỏe hàng năm + bảo hiểm sức khoẻ nâng cao \r\nPTI Đa dạng các hoạt động đào tạo chuyên môn và kỹ năng mềm Teambuilding, Du lịch, Sinh nhật, Year end party, … —----------- Thời gian: T2 - T6, nghỉ Thứ 7 & CN (chấm công linh hoạt) ', 'Liên hệ để biết thêm chi tiết ');
+(5, 'Công ty ABCD2', '10 triệu', 'Nhân viên kinh doanh', 'TP.HCM', 'Junior', 'https://example.com/image.jpg', 'Java', '2024-05-10', '4', '3 năm', 'Đại học', 'Thu nhập TB 13 tháng lương/năm\r\nThưởng Tết + thưởng lương tháng thứ 13 + thưởng hiệu quả công việc + thưởng theo tình tình kinh doanh \r\nKhám sức khỏe hàng năm + bảo hiểm sức khoẻ nâng cao \r\nPTI Đa dạng các hoạt động đào tạo chuyên môn và kỹ năng mềm Teambuilding, Du lịch, Sinh nhật, Year end party, … —----------- Thời gian: T2 - T6, nghỉ Thứ 7 & CN (chấm công linh hoạt) ', 'Liên hệ để biết thêm chi tiết '),
+(6, 'Công ty ABC', '10 triệu', 'Nhân viên kinh doanh', 'TP.HCM', 'Junior', 'anh_1703599693911.jpg', 'Tiếng Anh', '2024-05-10', '5', '1 năm', 'Cử nhân', 'Mô tả công việc', 'Yêu cầu công việc'),
+(7, 'Công ty ABC', '10 triệu', 'Nhân viên kinh doanh', 'TP.HCM', 'Junior', 'https://example.com/image.jpg', 'Tiếng Anh', '2024-05-10', '5', '1 năm', 'Cử nhân', 'Mô tả công việc', 'Yêu cầu công việc'),
+(8, 'Công ty ABC', '10 triệu', 'Nhân viên kinh doanh', 'TP.HCM', 'Junior', 's', 'Tiếng Anh', '2024-05-10', '5', '1 năm', 'Cử nhân', 'Mô tả công việc', 'Yêu cầu công việc'),
+(10, ' Công ty Ngô Đình Phước vip pro', '$2000', 'MIDDLE FULL-STACK DEVELOPE', 'Hải Châu - Đà Nẵng', 'senior', '356572488_3194315847528178_4153545103444160033_n.jpg', 'Java', '2024-05-23', '10', '2', 'Cao đẳng', 's', 's'),
+(11, 'Công ty ABCD2', '10 triệu', 'Nhân viên kinh doanh', 'TP.HCM', 'entry', '26734504_207450473144986_4609166838249960267_n.jpg', 'ng', '2024-05-06', '3', 'Trên 3 năm ', 'Đại học ', 's', 's'),
+(12, 'Công ty ABCD2', '10 triệu', 'Nhân viên kinh doanh', 'TP.HCM', 'entry', '54199208_1649564065146424_3714395199137382400_n.jpg', 'ng', '2024-05-14', '3', 'Trên 3 năm ', 'Đại học ', 'ssss', 'sss');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `ungtuyen`
+--
+
+CREATE TABLE `ungtuyen` (
+  `congty` varchar(255) NOT NULL,
+  `cv` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `fullname` varchar(255) NOT NULL,
+  `introduce` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `ungtuyen`
+--
+
+INSERT INTO `ungtuyen` (`congty`, `cv`, `email`, `fullname`, `introduce`, `phone`, `_id`) VALUES
+('Cong ty ngo', '.pdf', 'ngodinh', 'ngo dinh phuoc', 'học giỏi đẹp trai', '0865446276', 1),
+('Công ty ABC', '', 'd@gmail.com', 'd', 'd', 'd', 2),
+('Công ty ABC', 'ngodinhphuoc.pdf', 'ngodinhphuoc100@gmail.com', 'Ngo Dinh PHuoc', 's', '0392798232', 3),
+('Công ty ABC', 'mobilenet.pdf', 'ngodinhphuoc100@gmail.com', 'ngo phuoc', 's', '0865446276', 4);
 
 -- --------------------------------------------------------
 
@@ -126,7 +155,9 @@ INSERT INTO `user` (`id`, `email`, `password`, `role`) VALUES
 (4, 'ngodinhphuoc100@gmail.com', '0865446276', 'user'),
 (5, 'ngodinhphuoc100@gmail.com', '0865446276', 'user'),
 (6, 'ngodinhphuoc100@gmail.com', '0865446276', 'user'),
-(7, 'ngodinhphuoc100@gmail.com', '0865446276', 'user');
+(7, 'ngodinhphuoc100@gmail.com', '0865446276', 'user'),
+(8, '100@gmail.com', '', 'user'),
+(9, '100@gmail.com', '', 'user');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -148,6 +179,12 @@ ALTER TABLE `company`
 -- Chỉ mục cho bảng `post`
 --
 ALTER TABLE `post`
+  ADD PRIMARY KEY (`_id`);
+
+--
+-- Chỉ mục cho bảng `ungtuyen`
+--
+ALTER TABLE `ungtuyen`
   ADD PRIMARY KEY (`_id`);
 
 --
@@ -176,13 +213,19 @@ ALTER TABLE `company`
 -- AUTO_INCREMENT cho bảng `post`
 --
 ALTER TABLE `post`
-  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT cho bảng `ungtuyen`
+--
+ALTER TABLE `ungtuyen`
+  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
