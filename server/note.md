@@ -1,0 +1,1 @@
+Nếu bạn muốn gửi dữ liệu dưới dạng JSON, bạn sẽ cần sử dụng JSON.stringify để chuyển đổi đối tượng formData thành một chuỗi JSON và đặt tiêu đề Content-Type thành application/json trong yêu cầu của bạn, như đã thảo luận trước đó. Tuy nhiên, trong trường hợp này, việc gửi dưới dạng multipart/form-data phù hợp với việc gửi các tệp tin (như cv) từ form.

@@ -1,0 +1,75 @@
+[{
+  "_id": {
+    "$oid": "656b3bd7e8cd891205e6d52f"
+  },
+  "email": "stephen96@ethereal.email",
+  "password": "$2b$10$EAzoiOoTynO.zTKHi7LUi.zi8hthD6.AXx0UifG0a3y2pQsCJlgB6",
+  "role": "user",
+  "createdAt": {
+    "$date": "2023-12-02T14:14:47.374Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-02T14:14:47.374Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "658517ac25789d02f78e70f2"
+  },
+  "email": "nguyenhuynhan.dn@gmail.com",
+  "password": "$2b$10$c8unRpRQ75qNgKJdfReni.c8PDyuUQjg49TwRns1UiMKIaYRydjWi",
+  "role": "admin",
+  "createdAt": {
+    "$date": "2023-12-22T04:59:24.882Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-22T04:59:24.882Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65852c8835eafacc8f0c5aa1"
+  },
+  "email": "karlie.conn@ethereal.email",
+  "password": "$2b$10$NTsc1OGP8kpMdNIxr0La9OaZTFr326DKgfX.xmK8roqNC45K76UTy",
+  "role": "user",
+  "createdAt": {
+    "$date": "2023-12-22T06:28:24.867Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-22T06:28:24.867Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "658633ccd838061ca1eb96ec"
+  },
+  "email": "user5@gmail.com",
+  "password": "$2b$10$/o8Ic1s1wR1KK1CCow7HLOE9zWILVkxJRcY.d3FUm1wniXHUAVtmy",
+  "role": "user",
+  "createdAt": {
+    "$date": "2023-12-23T01:11:40.463Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-23T01:11:40.463Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65864225d838061ca1eb9730"
+  },
+  "email": "ngodinhphuoc100@gmail.com",
+  "password": "$2b$10$8UZERNiNk5qa9NjkU3hGbeK/J7Cg37HEaxDmfzXybAG63PXxkK0H.",
+  "role": "user",
+  "createdAt": {
+    "$date": "2023-12-23T02:12:53.953Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-23T02:12:53.953Z"
+  },
+  "__v": 0
+}]

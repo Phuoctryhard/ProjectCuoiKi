@@ -185,8 +185,9 @@ function ApplicationModal({ onClose, onApply, Congti, setApplicationStatus }) {
 
     //http://wandertour.ddns.net:5000/post/sendmail
     // Gửi yêu cầu POST đến máy chủ
-    fetch('https://ngodinhphuoc.pythonanywhere.com/post/sendmail', {
+    fetch('http://localhost:5000/sendmail', {
       method: 'POST',
+
       body: formDataToSend
     })
       .then((response) => response.json())

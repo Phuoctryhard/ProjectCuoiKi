@@ -12,6 +12,7 @@ from flask_jwt_extended import (
 from datetime import timedelta
 UPLOAD_FOLDER = './static/img'  # Thư mục để lưu trữ tệp tải lên
 UPLOAD_FOLDER_Blog = './static/Blog'
+UPLOAD_FOLDER_CV = './static/cv'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 app = Flask(__name__)
 CORS(app, support_credentials=True)
@@ -38,6 +39,7 @@ mail = Mail(app)
 # img
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['UPLOAD_FOLDER_Blog'] = UPLOAD_FOLDER_Blog
+app.config['UPLOAD_FOLDER_CV'] = UPLOAD_FOLDER_CV
 
 # route
 
@@ -50,6 +52,8 @@ def home():
 @app.route('/about')
 def about():
     return '<h1>About us</h1>'
+
+# USER
 
 
 @app.route('/user/getuser')
@@ -129,7 +133,7 @@ def showPost():
         return jsonify(data)
     except Exception as e:
         return jsonify({"message": f"Xem dữ liệu không thành công: {e}"}), 500
-# tạo bài cần authentication
+# 33 tạo bài Post  cần authentication
 
 
 @app.route("/post/create", methods=["POST"])
@@ -180,40 +184,12 @@ def deletePost(post_id):
         return jsonify({"message": "Bài viết đã được xóa thành công."}), 200
     except Exception as e:
         return jsonify({"message": f"Xóa dữ liệu không thành công: {e}"}), 500
-# lấy theo id
-# @app.route("post/edit/recruitment/<string:post_id>",methods = ["GET"])
-# @jwt_required()
-# def getPost_byId(post_id):
-#     try:
-
-
-#     except Exception as e :
-#         return jsonify({"message": f"=Không thể chỉnh sửa dữ liệu : {e}"}), 500
-
-
-# @app.route("/post/update/recruitment/<string:post_id>", methods=["PUT"])
-# def updatePost(post_id):
-#     try:
-#         data = request.json
-#         cursor = conn.cursor()
-#         cursor.execute("""
-#             UPDATE post
-#             SET congti=%s, luong=%s, vitri=%s, khuvuc=%s, level=%s, anh=%s, language=%s, timedang=%s, soluong=%s, kinhnghiem=%s, bangcap=%s, mota=%s, yeucau=%s
-#             WHERE _id=%s
-#         """, (data['congti'], data['luong'], data['vitri'], data['khuvuc'], data['level'], data['anh'], data['language'],
-#               data['timedang'], data['soluong'], data['kinhnghiem'], data['bangcap'], data['mota'], data['yeucau'], post_id))
-#         conn.commit()
-        cursor.close()
-#         return jsonify({"message": "Bài viết đã được cập nhật thành công."}), 200
-#     except Exception as e:
-#         return jsonify({"message": f"Cập nhật dữ liệu không thành công: {e}"}), 500
 
 
 @app.route("/post/update/recruitment/<string:post_id>", methods=["PUT"])
 def update_post(post_id):
     try:
         data = request.json
-
         # Extract specific fields from the request data
         congti = data.get('congti')
         luong = data.get('luong')
@@ -263,7 +239,7 @@ def getPostbyAdmin():
     except Exception as e:
         return jsonify({"message": f"Error fetching data: {e}"}), 500
 
-# lấy theo id
+# 3 lấy theo id
 
 
 @app.route("/post/edit/recruitment/<int:post_id>", methods=["GET"])
@@ -347,7 +323,12 @@ def uploaded_file(filename):
 def uploaded_fileBlog(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER_Blog'], filename)
 
-# cong ti
+
+@app.route('/Images_CV/<filename>')
+def uploaded_fileCV(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER_CV'], filename)
+
+# 3 cong ti
 
 
 @app.route('/company')
@@ -362,7 +343,11 @@ def getCompany():
         return jsonify(data)
     except Exception as e:
         return jsonify({"message": f"Xem dữ liệu không thành công: {e}"}), 500
+
+
 # blog
+
+
 @app.route('/blog')
 def getBlog():
     try:
@@ -398,6 +383,120 @@ def getBlog_byid(post_id):
             return jsonify({"message": f"Không tìm thấy bài Blog có ID {post_id}"}), 404
     except Exception as e:
         return jsonify({"message": f"Lấy dữ liệu không thành công: {e}"}), 500
+
+
+@app.route('/sendmail', methods=['POST'])
+def getSendMail():
+    # Lấy dữ liệu từ form gửi lên
+    print(request.form)
+    congti = request.form.get('congti')
+    email = request.form.get('email')
+    fullname = request.form.get('fullname')
+    introduction = request.form.get('introduction')
+    phonenumber = request.form.get('phonenumber')
+    cv = request.files.get('cv')
+    if cv:
+        filename = secure_filename(cv.filename)
+        file_path = os.path.join(UPLOAD_FOLDER_CV, filename)
+        cv.save(file_path)
+    if not all([congti, email, fullname, introduction, phonenumber]):
+        return jsonify({"error": "Missing required fields"}), 400
+    try:
+        filename = cv.filename
+        cursor = conn.cursor(buffered=True)
+        cursor.execute("INSERT INTO ungtuyen (congty, cv, email, fullname, introduce, phone) VALUES (%s, %s, %s, %s, %s, %s)",
+                       (congti, filename, email, fullname, introduction, phonenumber))
+        conn.commit()
+        msg = Message(f"Đăng Kí Ứng Tuyển Công Ty{congti} Thành Công ",
+                      sender='nguyenhuynhan.dn@gmail.com', recipients=[email])
+        msg.body = f"Đăng Kí ứng tuyển thành công.\nChúng tôi sẽ sớm phản hồi kết quả lại.\nChúc bạn 1 ngày tốt lành!"
+        mail.send(msg)
+        return jsonify({"message": "Data received successfully"}), 200
+    except Exception as err:
+        return jsonify({"error": f'Lỗi: {err}'}), 500
+
+
+# 33 tìm kiếm
+@app.route('/company/search/<string:query>', methods=['GET'])
+def searchCompany(query):
+    try:
+        cursor = conn.cursor()
+        # Sử dụng truy vấn LIKE với phần trăm (%) để tìm kiếm tương đối
+        like_pattern = f"%{query}%"  # Chuỗi tìm kiếm với ký tự đại diện
+        query = "SELECT * FROM post WHERE congti LIKE %s OR luong LIKE %s OR vitri LIKE %s OR level LIKE %s"
+        cursor.execute(query, (like_pattern, like_pattern,
+                       like_pattern, like_pattern))
+        columns = [col[0] for col in cursor.description]
+        results = cursor.fetchall()
+        cursor.close()
+
+        if results:
+            data = [dict(zip(columns, row)) for row in results]
+            return jsonify(data), 200
+        else:
+            return jsonify({"message": f"Không tìm thấy công ty có tên hoặc ngôn ngữ chứa '{query}'"}), 404
+    except Exception as e:
+        return jsonify({"message": f"Tìm kiếm dữ liệu không thành công: {e}"}), 500
+
+
+@app.route('/post/search_by_province', methods=['GET'])
+def searchPostByProvince():
+    try:
+        province = request.args.get('province')
+        cursor = conn.cursor()
+        query = "SELECT * FROM post WHERE khuvuc = %s"
+        cursor.execute(query, (province,))
+        columns = [col[0] for col in cursor.description]
+        results = cursor.fetchall()
+        cursor.close()
+
+        if results:
+            data = [dict(zip(columns, row)) for row in results]
+            return jsonify(data), 200
+        else:
+            return jsonify({"message": f"Không tìm thấy bài viết nào ở tỉnh '{province}'"}), 404
+    except Exception as e:
+        return jsonify({"message": f"Tìm kiếm dữ liệu không thành công: {e}"}), 500
+
+
+@app.route('/post/search_by_level', methods=['GET'])
+def searchPostBylevel():
+    try:
+        level = request.args.get('level')
+        cursor = conn.cursor()
+        query = "SELECT * FROM post WHERE level = %s"
+        cursor.execute(query, (level,))
+        columns = [col[0] for col in cursor.description]
+        results = cursor.fetchall()
+        cursor.close()
+
+        if results:
+            data = [dict(zip(columns, row)) for row in results]
+            return jsonify(data), 200
+        else:
+            return jsonify({"message": f"Không tìm thấy bài viết nào ở tỉnh '{level}'"}), 404
+    except Exception as e:
+        return jsonify({"message": f"Tìm kiếm dữ liệu không thành công: {e}"}), 500
+
+
+@app.route('/post/search_by_salary', methods=['GET'])
+def searchPostBySalary():
+    try:
+        salary = request.args.get('salary')
+        cursor = conn.cursor()
+        query = "SELECT * FROM post WHERE luong = %s"
+        cursor.execute(query, (salary,))
+        columns = [col[0] for col in cursor.description]
+        results = cursor.fetchall()
+        cursor.close()
+
+        if results:
+            data = [dict(zip(columns, row)) for row in results]
+            return jsonify(data), 200
+        else:
+            return jsonify({"message": f"Không tìm thấy bài viết có lương là '{salary}'"}), 404
+    except Exception as e:
+        return jsonify({"message": f"Tìm kiếm dữ liệu không thành công: {e}"}), 500
 
 
 if __name__ == '__main__':
