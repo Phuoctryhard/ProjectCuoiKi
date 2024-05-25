@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 23, 2024 lúc 01:34 PM
+-- Thời gian đã tạo: Th5 25, 2024 lúc 05:05 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -67,7 +67,36 @@ CREATE TABLE `company` (
 
 INSERT INTO `company` (`_id`, `employer`, `language`, `linhvuc`, `name`, `vitri`, `image`) VALUES
 (1, '20-100 Employees', 'Agile & Scum', 'Phần Mềm', 'Công ty TNHH Codelink', 'Hồ Chí Minh', 'https://salt.topdev.vn/JHuFW8G6yycem02__XlonHrxbjHBQCpuRrj9lrdagRk/fit/256/1000/ce/1/aHR0cHM6Ly9hc3NldHMudG9wZGV2LnZuL2ltYWdlcy8yMDIyLzA3LzEzL1RvcERldi1TY3JlZW5TaG90MjAyMi0wNy0xMmF0MTcxODM3LU1pblRybmgtMTY1NzY4NjI5NS5wbmc'),
-(2, '25-99 Employees', 'PHP,Nodejs,Reactjs', 'Outsourcing', 'FTP Software -Hồ Chí Minh', 'Thành Phố Thủ Đức - Hồ Chí Minh', 'https://salt.topdev.vn/mh7UULH3h6Wf9a7J-QzZWlO-gGv94foRl-YTabE3bIs/fit/256/1000/ce/1/aHR0cHM6Ly9hc3NldHMudG9wZGV2LnZuL2ltYWdlcy8yMDIxLzA0LzEyL2VmMmIxNWQ0Nzg5ODJjY2ViZDk3YjE5ZDgyZDY2Y2I3LW5zd1hGLnBuZw');
+(2, '25-99 Employees', 'PHP,Nodejs,Reactjs', 'Outsourcing', 'FTP Software -Hồ Chí Minh', 'Thành Phố Thủ Đức - Hồ Chí Minh', 'https://salt.topdev.vn/mh7UULH3h6Wf9a7J-QzZWlO-gGv94foRl-YTabE3bIs/fit/256/1000/ce/1/aHR0cHM6Ly9hc3NldHMudG9wZGV2LnZuL2ltYWdlcy8yMDIxLzA0LzEyL2VmMmIxNWQ0Nzg5ODJjY2ViZDk3YjE5ZDgyZDY2Y2I3LW5zd1hGLnBuZw'),
+(3, '25-99 employees', 'PHP & Java & Web/ Mobile & IT Staff', 'Dịch vụ doanh nghiệp, Nhân sự, Triển Khai Phần Mềm', 'Talent Success', 'Ho Chi Minh - Da Nang - Ha Noi - Others', 'https://salt.topdev.vn/jRHEO5Ufrx_Pq8uQImnSvSJ_UNqTRyfb5zDeI6ohjpE/fit/256/1000/ce/1/aHR0cHM6Ly9hc3NldHMudG9wZGV2LnZuL2ltYWdlcy8yMDIyLzA0LzIxL1RvcERldi1sb2dvUWp5dzBmSElPMlduTGVEc3h5R2ZZb212NUoweVBKY04tMTY1MDUzMDczMy5wbmc'),
+(4, '100-200', 'PHP & Ruby on Rails & Python', 'Phần Mềm', 'CÔNG TY TNHH CHASQUI VIỆT NAM', 'Quận Nam Từ Liêm, Thành phố Hà Nội', 'https://salt.topdev.vn/4sPNVfnFXq73-_Calu9z2RqNKWLYE1agAP7LWQSZLOY/fit/256/1000/ce/1/aHR0cHM6Ly9hc3NldHMudG9wZGV2LnZuL2ltYWdlcy8yMDIzLzEyLzIwL1RvcERldi1NaWNyb3NvZnRUZWFtcy1pbWFnZS0lMjgyMSUyOS0tLUhhUGh1b25nLVRyYW4tMTcwMzA2MjAyNy5wbmc'),
+(5, '200-300', 'Swift-iOS-Github\r\n', 'Software', 'CÔNG TY TNHH STARFRUIT VINA', 'Thành phố Thủ Đức, Thành phố Hồ Chí Minh', 'https://salt.topdev.vn/vO6vT2IavOEPvKz6T4s3gK9D_8JtFKCL7BLBJ-2C7is/fit/256/1000/ce/1/aHR0cHM6Ly9hc3NldHMudG9wZGV2LnZuL2ltYWdlcy8yMDIzLzEwLzExL1RvcERldi1TY3JlZW5zaG90LTIwMjMtMTAtMTEtMTUxOTIwLTE2OTcwMTI3ODcucG5n'),
+(6, 'Software', 'Embedded-Automotive-Autosar', 'IT', 'Công ty TNHH Yura Corporation Bắc Ninh_Chi nhánh Hà Nội', 'Quận Cầu Giấy, Thành phố Hà Nội', 'https://salt.topdev.vn/irU7MXs16hK292unkqrNG2053FiEpEIIYmmrJ3eXO0Q/fit/256/1000/ce/1/aHR0cHM6Ly9hc3NldHMudG9wZGV2LnZuL2ltYWdlcy8yMDI0LzA0LzI0L1RvcERldi1BbmgtY2h1cC1tYW4taGluaC0yMDI0LTA0LTI0LTE2MzgxNi0xNzEzOTUxNTM1LnBuZw');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `nhantuyendung`
+--
+
+CREATE TABLE `nhantuyendung` (
+  `_id` int(11) NOT NULL,
+  `congti` varchar(255) NOT NULL,
+  `language` varchar(255) NOT NULL,
+  `luong` varchar(255) NOT NULL,
+  `level` varchar(255) NOT NULL,
+  `bangcap` varchar(255) NOT NULL,
+  `anh` varchar(255) NOT NULL,
+  `gmail` varchar(255) NOT NULL,
+  `khuvuc` varchar(255) NOT NULL,
+  `vitri` varchar(255) NOT NULL,
+  `thoigian` date NOT NULL,
+  `yeucau` text NOT NULL,
+  `mota` text NOT NULL,
+  `kinhnghiem` varchar(255) NOT NULL,
+  `soluong` varchar(255) NOT NULL,
+  `nhatuyendung` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -97,13 +126,13 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`_id`, `congti`, `luong`, `vitri`, `khuvuc`, `level`, `anh`, `language`, `timedang`, `soluong`, `kinhnghiem`, `bangcap`, `mota`, `yeucau`) VALUES
-(5, 'Công ty ABCD2', '10 triệu', 'Nhân viên kinh doanh', 'TP.HCM', 'Junior', 'https://example.com/image.jpg', 'Java', '2024-05-10', '4', '3 năm', 'Đại học', 'Thu nhập TB 13 tháng lương/năm\r\nThưởng Tết + thưởng lương tháng thứ 13 + thưởng hiệu quả công việc + thưởng theo tình tình kinh doanh \r\nKhám sức khỏe hàng năm + bảo hiểm sức khoẻ nâng cao \r\nPTI Đa dạng các hoạt động đào tạo chuyên môn và kỹ năng mềm Teambuilding, Du lịch, Sinh nhật, Year end party, … —----------- Thời gian: T2 - T6, nghỉ Thứ 7 & CN (chấm công linh hoạt) ', 'Liên hệ để biết thêm chi tiết '),
-(6, 'Công ty ABC', '10 triệu', 'Nhân viên kinh doanh', 'TP.HCM', 'Junior', 'anh_1703599693911.jpg', 'Tiếng Anh', '2024-05-10', '5', '1 năm', 'Cử nhân', 'Mô tả công việc', 'Yêu cầu công việc'),
-(7, 'Công ty ABC', '10 triệu', 'Nhân viên kinh doanh', 'TP.HCM', 'Junior', 'https://example.com/image.jpg', 'Tiếng Anh', '2024-05-10', '5', '1 năm', 'Cử nhân', 'Mô tả công việc', 'Yêu cầu công việc'),
-(8, 'Công ty ABC', '10 triệu', 'Nhân viên kinh doanh', 'TP.HCM', 'Junior', 's', 'Tiếng Anh', '2024-05-10', '5', '1 năm', 'Cử nhân', 'Mô tả công việc', 'Yêu cầu công việc'),
-(10, ' Công ty Ngô Đình Phước vip pro', '$2000', 'MIDDLE FULL-STACK DEVELOPE', 'Hải Châu - Đà Nẵng', 'senior', '356572488_3194315847528178_4153545103444160033_n.jpg', 'Java', '2024-05-23', '10', '2', 'Cao đẳng', 's', 's'),
-(11, 'Công ty ABCD2', '10 triệu', 'Nhân viên kinh doanh', 'TP.HCM', 'entry', '26734504_207450473144986_4609166838249960267_n.jpg', 'ng', '2024-05-06', '3', 'Trên 3 năm ', 'Đại học ', 's', 's'),
-(12, 'Công ty ABCD2', '10 triệu', 'Nhân viên kinh doanh', 'TP.HCM', 'entry', '54199208_1649564065146424_3714395199137382400_n.jpg', 'ng', '2024-05-14', '3', 'Trên 3 năm ', 'Đại học ', 'ssss', 'sss');
+(5, 'Công ty ABCD2', '10 triệu', 'Nhân viên kinh doanh', 'TP.HCM', 'Junior', 'anh_1703274175358.jpg', 'Java', '2024-05-10', '4', '3 năm', 'Đại học', 'Thu nhập TB 13 tháng lương/năm\r\nThưởng Tết + thưởng lương tháng thứ 13 + thưởng hiệu quả công việc + thưởng theo tình tình kinh doanh \r\nKhám sức khỏe hàng năm + bảo hiểm sức khoẻ nâng cao \r\nPTI Đa dạng các hoạt động đào tạo chuyên môn và kỹ năng mềm Teambuilding, Du lịch, Sinh nhật, Year end party, … —----------- Thời gian: T2 - T6, nghỉ Thứ 7 & CN (chấm công linh hoạt) ', 'Liên hệ để biết thêm chi tiết '),
+(6, 'RIKKEISOFT', '10 triệu', 'Middle/Senior', 'ĐÀ NẴNG', 'Junior', 'anh_1703599693911.jpg', '.NET, Java, Angular', '2024-05-10', '5', '1 năm', 'Cử nhân', 'JOBS DÀNH CHO THỊ TRƯỜNG GLOBAL TẠI RIKKEISOFT ĐÀ NẴNG Rikkeisoft đang mở rộng sự hiện diện toàn cầu từ APAC đến châu Âu và Mỹ.\nPhối hợp trực tiếp cùng RKTech - chi nhánh Rikkeisoft tại Mỹ, làm việc với tệp KH đa dạng từ Mỹ, Sing, Úc,... Môi trường tiếng anh 100%, nhiều cơ hội onsite tại RKTech - chi nhánh Rikkei Mỹ\nSigning bonus hấp dẫn để chuyển việc cuối năm!!! \nInbox mình để được chia sẻ thêm nhiều thông tin về công việc và môi trường tại Rikkei nhé!!\n🎯 FB: Kim Ngân (Billie)\n📲 Skype: lngan728', '.NET (Middle/ Senior) Từ 4 năm kinh nghiệm .NET Tiếng anh giao tiếp khá ✈️ Java Developers (Middle/Senior) Từ 4 năm kinh nghiệm Java Tiếng anh giao tiếp khá ✈️ Angular Developers (Middle/Senior) Từ 3 năm kinh nghiệm Angular Tiếng Anh giao tiếp khá ✈️ PM/ TEAM LEAD Có kinh nghiệm PM cho dự án Tiếng Anh giao tiếp khá 🔥100% lương thử việc, offer cạnh tranh, thưởng hiệu suất hàng tháng, cơ hội onsite Mỹ, chỉ 1 vòng phỏng vấn duy nhất'),
+(7, 'Pasona DX Hub', '10 triệu', ' QC, Project Leader, BSE, Web Dev', 'TP.HCM', 'Junior', 'anh_1703267724015.png', 'Nodejs-Reactjs', '2024-05-10', '5', '1 năm', 'Đại học', ' Địa chỉ liên hệ PASONA TECH VIETNAM:\nTầng 4, E.Town 1, 364 Cong Hoa, Quận Tân Bình, Thành phố Hồ Chí Minh, Việt Nam \nTầng 20, Trung tâm Vincom, 45A Lý Tự Trọng, Quận 1, Thành phố Hồ Chí Minh, Việt Nam\nTầng 9 Pacific Place, 83B Lý Thường Kiệt, Quận Hoàn Kiếm, Thành phố Hà Nội, Việt Nam \n243 Phan Đăng Lưu, Khuê Trung, Cẩm Lệ, TP Đà Nẵng, Việt Nam\nMail: pasonacrossing@pasonatech.vn', 'liên hệ để biết thêm\n'),
+(8, 'LG', '20 triệu', 'Software Engineer, Project Manager, Security Test Engineer', 'Đà Nẵng', 'Junior', 'anh_1703268025289.png', 'C/C++, Java, ...', '2024-05-10', '5', '1 năm', 'Cử nhân', 'MỞ CỬA THÀNH CÔNG -LG ĐÀ NẴNG ĐỒNG HÀNH CÙNG BẠN ☀️ SỞ HỮU MỨC LƯƠNG $550 - $2,500 TỪ 01 NĂM KINH NGHIỆM CƠ HỘI LÀM VIỆC tại thương hiệu toàn cầu trong lĩnh vực Automotive BỆ PHÓNG VỮNG VÀNG khi được đào tạo bởi chuyên gia hàng đầu trong lĩnh vực Automotive. 👉LG Đà Nẵng đang “mở cổng\" để cùng bạn xây dựng một tương lai đầy tươi sáng\nƯU ĐÃI ĐẶC QUYỀN TẠI LG R&D ĐÀ NẴNG: - Hỗ trợ CHI PHÍ chuyển vùng lên đến 20 TRIỆU cho những ứng viên chuyển đến Đà Nẵng từ HN/HCM/Huế/Quy Nhơn\n Lương tháng 13 - Thưởng hiệu quả làm việc (STI) lên đến 03 tháng lương/năm - Chăm sóc sức khỏe toàn diện bằng gói bảo hiểm cao cấp PVI Premium Healthcare. - 20 ngày nghỉ hưởng lương hàng năm. \ntại LG R&D Đà Nẵng còn có: - Các hoạt động du lịch, team building và chơi thể thao nâng cao sức khỏe. - Cơ hội làm việc on-site tại Châu Âu, Châu Á giúp phát triển năng lực, khám phá bản thân. - Làm việc tại môi trường quốc tế cùng các chuyên gia đỉnh cao trong lĩnh vực Automotive, tha hồ học hỏi, tích lũy kinh nghiệm\nGửi CV về địa chỉ email: hong1.nguyen@lgepartner.com', 'Yêu cầu công việc'),
+(10, 'Fastcoding vn', ' 4,500,000 - 10,000,000', 'Tester (Không nhận TTS tốt nghiệp)', 'Lầu 6, 773, Ngô Quyền, Sơn Trà, Đà Nẵng ', 'senior', 'anh_1703268380316.png', 'Java', '2024-05-23', '10', '2', 'Cao đẳng', 'Kiểm tra nội dung cơ bản\nKiểm tra chức năng \nBáo cáo bugs bằng cách sử dụng các công cụ theo dõi bugs · Xem xét các yêu cầu, thông số kỹ thuật và tài liệu thiết kế kỹ thuật để cung cấp phản hồi kịp thời \nTạo kế hoạch kiểm tra chi tiết và test case Xác định, ghi lại và theo dõi bugs\nThực hiện kiểm tra kỹ lưỡng khi bugs được giải quyết\nTheo dõi kết quả quá trình debugs\nBáo cáo trực tiếp với PM / QC\nLàm việc theo nhóm để kiểm tra chức năng mới, debug và vấn đề liên quan đến chất lượng \nCách thức ứng tuyển: Gởi CV vào email: asia-hr@fastcoding.jp', 'Giao tiếp tốt bằng Tiếng Anh (nói và viết) \nChú trọng chi tiết \nKỹ năng giao tiếp và kỹ năng làm việc nhóm tốt \nCó thể điều chỉnh thời gian làm việc cho phù hợp với dự án \nKỹ năng phân tích và sáng tạo trong giải quyết vấn đề \nSẵn sàng học hỏi những điều mới \nKỹ năng lập kế hoạch dựa trên mức độ ưu tiên \nKỹ năng giải quyết vấn đề \nBáo cáo vấn đề kịp thời '),
+(11, 'LIFTsoft', '10 triệu', 'Tester - Junior (N3)', 'Tầng 5 Tòa Nhà Thành Quân, 132-136 Lê Đình Lý – Q.Thanh Khê – Tp.Đà Nẵng', 'entry', 'anh_1703268681657.jpg', '.Net', '2024-05-06', '3', 'Trên 3 năm ', 'Đại học ', 'Đọc, phân tích và hiểu yêu cầu phần mềm; Truyền đạt yêu cầu phần mềm cho Lập trình viên khi cần.\nLập kế hoạch test, viết testcase, checklist task; Thực hiện test và log bug. \nTổng hợp báo cáo kết quả test; Báo cáo tình hình lỗi cho PM. \nPhối hợp với lập trình viên phân tích và tìm ra nguồn gốc của lỗi. \nTham gia đề xuất cải thiện/ maintain phần mềm.\nViết tài liệu hướng dẫn sử dụng phần mềm nếu cần.\nThực hiện các công việc khác theo sự phân công của Leader/PM.', 'Có kinh nghiệm Manual QA từ 1 năm trở lên.\nTiếng Nhật N3 trở lên.\nCó khả năng giao tiếp tiếng Nhật trong công việc.\nTừng làm việc cùng người Nhật là một lợi thế. \nSử dụng thành thạo tin học văn phòng.\nCó tính cẩn thận, chịu khó, ham học hỏi và chịu được áp lực công việc, có khả năng làm việc nhóm. '),
+(12, 'Meta Technology', '10 triệu', 'thực tập sinh FRONTEND', 'TP.HCM', 'entry', 'anh_1703268886005.png', 'Javascript', '2024-05-14', '3', 'Trên 3 năm ', 'Đại học ', '🎯 Inbox trực tiếp Messenger\n💌 Emailmailto:hr@meta-technology.com.vn', 'Sử dụng HTML/CSS để xây dựng nội dung các trang web \nTích hợp vào các framework như React, .NetCore, ...\nương tác UI với Javascript');
 
 -- --------------------------------------------------------
 
@@ -176,6 +205,12 @@ ALTER TABLE `company`
   ADD PRIMARY KEY (`_id`);
 
 --
+-- Chỉ mục cho bảng `nhantuyendung`
+--
+ALTER TABLE `nhantuyendung`
+  ADD PRIMARY KEY (`_id`);
+
+--
 -- Chỉ mục cho bảng `post`
 --
 ALTER TABLE `post`
@@ -207,7 +242,13 @@ ALTER TABLE `blog`
 -- AUTO_INCREMENT cho bảng `company`
 --
 ALTER TABLE `company`
-  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT cho bảng `nhantuyendung`
+--
+ALTER TABLE `nhantuyendung`
+  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `post`
