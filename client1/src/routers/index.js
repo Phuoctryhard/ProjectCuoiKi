@@ -24,7 +24,7 @@ const publicRouter = [
   { path: '/details/:id', commponent: DetailsBlog },
   { path: '/post/by/:id', commponent: Detail },
   { path: '/CV', commponent: CV },
-  { path: '/conpany/name/:company', commponent: Detailcompany },
+  { path: '/company/:id', commponent: Detailcompany },
   { path: '/Admin', commponent: Admin, Layout: 'Admin' },
   { path: '/AddPost', commponent: Admin, Layout: 'Admin' },
   { path: '/PostAdmin', commponent: PostAdmin, Layout: 'Admin' },

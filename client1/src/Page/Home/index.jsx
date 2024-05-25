@@ -1,17 +1,16 @@
 import Slider from 'react-slick'
 import anh1 from '../../css/img/Screenshot 2023-12-14 130826.png'
-import anh2 from '../../css/img/giaodien2.png'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import styles from './index.module.css'
 import congti from '../../css/img/anhcongti.png'
+import logo9 from '../../css/img/logo9.png'
+import logo10 from '../../css/img/logo10.png'
+import logo11 from '../../css/img/logo11.png'
 import anhcongti from '../../css/img/telexpert.png'
 import eo from '../../css/img/eon.png'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Footer from '../Footer'
 import { Card } from '../../component/Blog/Card'
-
 import react from 'react'
 import { company } from '../../css/assets/data/data'
 import '../../component/category/category.css'
@@ -43,8 +42,6 @@ const Banner = () => {
       <div>
         <img src={anh1} alt='Banner Image 1' />
       </div>
-      {/* Add more slides as needed */}
-
       <div className='banner-content'></div>
     </section>
   )
@@ -59,25 +56,59 @@ const CompanyTop = () => {
             <img style={{ width: '98px', height: '98px', padding: '16px 8px ' }} src={congti}></img>
           </div>
           <div className={congti.company_content}>
-            <h2 className={congti.heading_challenge}> CHALLENGE</h2>
+            <h2 className={congti.heading_challenge} style={{ fontWeight: 'bold' }}>
+              CHAILEASE
+            </h2>
           </div>
         </div>
-
         <div className={styles.item_company}>
           <div className={styles.company_image}>
             <img style={{ width: '98px', height: '98px', padding: '16px 8px ' }} src={anhcongti}></img>
           </div>
           <div className={congti.company_content}>
-            <h2 className={congti.heading_challenge}> Tek Expect</h2>
+            <h2 className={congti.heading_challenge} style={{ fontWeight: 'bold' }}>
+              Tek Expect
+            </h2>
           </div>
         </div>
-
         <div className={styles.item_company}>
           <div className={styles.company_image}>
             <img style={{ width: '98px', height: '98px', padding: '16px 8px ' }} src={eo}></img>
           </div>
           <div className={congti.company_content}>
-            <h2 className={congti.heading_challenge}> EOmail</h2>
+            <h2 className={congti.heading_challenge} style={{ fontWeight: 'bold' }}>
+              EOmail
+            </h2>
+          </div>
+        </div>
+        <div className={styles.item_company}>
+          <div className={styles.company_image}>
+            <img style={{ width: '98px', height: '98px', padding: '16px 8px ' }} src={logo9}></img>
+          </div>
+          <div className={congti.company_content}>
+            <h2 className={congti.heading_challenge} style={{ fontWeight: 'bold' }}>
+              Technology
+            </h2>
+          </div>
+        </div>
+        <div className={styles.item_company}>
+          <div className={styles.company_image}>
+            <img style={{ width: '98px', height: '98px', padding: '16px 8px ' }} src={logo10}></img>
+          </div>
+          <div className={congti.company_content}>
+            <h2 className={congti.heading_challenge} style={{ fontWeight: 'bold' }}>
+              Tech Template
+            </h2>
+          </div>
+        </div>
+        <div className={styles.item_company}>
+          <div className={styles.company_image}>
+            <img style={{ width: '98px', height: '98px', padding: '16px 8px ' }} src={logo11}></img>
+          </div>
+          <div className={congti.company_content}>
+            <h2 className={congti.heading_challenge} style={{ fontWeight: 'bold' }}>
+              TECHNO
+            </h2>
           </div>
         </div>
       </div>
@@ -112,7 +143,10 @@ const JobOutstanding = () => {
             return (
               <div className={styles.item_newsjob}>
                 <div className={styles.company_image}>
-                  <img style={{ width: '98px', height: '98px', padding: '16px 8px ' }} src={`https://ngodinhphuoc.pythonanywhere.com/Images/`+element.anh}></img>
+                  <img
+                    style={{ width: '98px', height: '98px', padding: '16px 8px ' }}
+                    src={`https://ngodinhphuoc.pythonanywhere.com/Images/` + element.anh}
+                  ></img>
                 </div>
                 <div className={styles.newjob_content}>
                   <h1 className={styles.newjob_title}> {element.vitri}</h1>
@@ -142,11 +176,7 @@ const BlogIt = () => {
   )
 }
 const Reviewer = () => {
-  return (
-    <div>
-     
-    </div>
-  )
+  return <div></div>
 }
 const Congtinoibat = () => {
   const SampleNextArrow = (props) => {

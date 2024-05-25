@@ -327,7 +327,6 @@ def uploaded_fileBlog(filename):
 @app.route('/Images_CV/<filename>')
 def uploaded_fileCV(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER_CV'], filename)
-
 # 3 cong ti
 
 
@@ -343,8 +342,6 @@ def getCompany():
         return jsonify(data)
     except Exception as e:
         return jsonify({"message": f"Xem dữ liệu không thành công: {e}"}), 500
-
-
 # blog
 
 
@@ -415,15 +412,37 @@ def getSendMail():
     except Exception as err:
         return jsonify({"error": f'Lỗi: {err}'}), 500
 
+# tìm kiếm theo id
 
-# 33 tìm kiếm
-@app.route('/company/search/<string:query>', methods=['GET'])
+
+@app.route('/company/<string:query>', methods=['GET'])
 def searchCompany(query):
+    try:
+        cursor = conn.cursor()
+        like_pattern = f"%{query}%"  # Search string with wildcard characters
+        sql_query = "SELECT * FROM company WHERE _id LIKE %s"
+        cursor.execute(sql_query, (like_pattern,))
+        result = cursor.fetchone()  # Fetch one result only
+
+        if result:
+            columns = [col[0] for col in cursor.description]
+            data = dict(zip(columns, result))
+            cursor.close()
+            return jsonify(data), 200
+        else:
+            cursor.close()
+            return jsonify({"message": f"Không tìm thấy công ty có tên chứa '{query}'"}), 404
+    except Exception as e:
+        return jsonify({"message": f"Tìm kiếm dữ liệu không thành công: {e}"}), 500
+
+
+@app.route('/post/search/<string:query>', methods=['GET'])
+def postsearchCompany(query):
     try:
         cursor = conn.cursor()
         # Sử dụng truy vấn LIKE với phần trăm (%) để tìm kiếm tương đối
         like_pattern = f"%{query}%"  # Chuỗi tìm kiếm với ký tự đại diện
-        query = "SELECT * FROM post WHERE congti LIKE %s OR luong LIKE %s OR vitri LIKE %s OR level LIKE %s"
+        query = "SELECT * FROM co WHERE congti LIKE %s OR luong LIKE %s OR vitri LIKE %s OR level LIKE %s"
         cursor.execute(query, (like_pattern, like_pattern,
                        like_pattern, like_pattern))
         columns = [col[0] for col in cursor.description]
@@ -497,6 +516,44 @@ def searchPostBySalary():
             return jsonify({"message": f"Không tìm thấy bài viết có lương là '{salary}'"}), 404
     except Exception as e:
         return jsonify({"message": f"Tìm kiếm dữ liệu không thành công: {e}"}), 500
+
+
+# nhà tuyển dụng
+@app.route('/nhatuyendung/post', methods=['POST'])
+def Nhatuyendungcreate():
+    try:
+        # Access text fields
+        congti = request.form.get('congti')
+        luong = request.form.get('luong')
+        vitri = request.form.get('vitri')
+        khuvuc = request.form.get('khuvuc')
+        level = request.form.get('level')
+        thoigian = request.form.get('thoigian')
+        language = request.form.get('language')
+        soluong = request.form.get('soluong')
+        kinhnghiem = request.form.get('kinhnghiem')
+        bangcap = request.form.get('bangcap')
+        mota = request.form.get('mota')
+        yeucau = request.form.get('yeucau')
+        nhatuyendung = request.form.get('nhatuyendung')
+        gmail = request.form.get('gmail')  # Adding gmail field
+        anh = request.files.get('anh')
+        filename = None
+        if anh:
+            filename = secure_filename(anh.filename)
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            anh.save(file_path)
+        cursor = conn.cursor(buffered=True)
+        cursor.execute("""
+            INSERT INTO nhatuyendung %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        """, (congti, luong, vitri, khuvuc, level, filename, language,
+              thoigian, soluong, kinhnghiem, bangcap, mota, yeucau, nhatuyendung, gmail))
+
+        conn.commit()
+        cursor.close()
+        return jsonify({"message": "Nhà tuyển dụng thêm bài tuyển dụng thành công."}), 201
+    except Exception as e:
+        return jsonify({"message": f"Thêm dữ liệu không thành công: {e}"}), 500
 
 
 if __name__ == '__main__':

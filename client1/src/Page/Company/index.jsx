@@ -19,6 +19,7 @@ function Company() {
     fetch('https://ngodinhphuoc.pythonanywhere.com/company')
       .then((response) => response.json())
       .then((res) => {
+        console.log(res)
         setData(res)
       })
       .catch((err) => {
@@ -51,7 +52,7 @@ const MusicCard = ({ data, onToggleLike }) => (
             <div className='flex flex-col gap-0'>
               <h3 className='font-semibold text-foreground/90'>
                 {' '}
-                <Link to={`/conpany/name/${data.name}`} style={{ fontSize: '20px' }}>
+                <Link to={`/company/${data._id}`} style={{ fontSize: '20px' }}>
                   {data.name}
                 </Link>
               </h3>
